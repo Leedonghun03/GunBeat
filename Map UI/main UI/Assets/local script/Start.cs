@@ -8,11 +8,11 @@ public class Start : MonoBehaviour
 
     public void SaveClick()
     {
-        PlayerPrefs.SetString("Gun Mode", play);
+        PlayerPrefs.SetString("Start", play);
         print("불러오기:" + play);
     }
     public void ViewClick()
     {
-        print("불러오기 성공:" + PlayerPrefs.GetString("Gun Mode"));
+        print("불러오기 성공:" + PlayerPrefs.GetString("Start"));
     }
 }
