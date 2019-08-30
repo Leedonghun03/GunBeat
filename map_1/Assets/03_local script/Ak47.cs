@@ -8,11 +8,11 @@ public class Ak47 : MonoBehaviour
 
     public void SaveClick()
     {
-        PlayerPrefs.SetString("Gun Mode", Starting);
+        PlayerPrefs.SetString("GunMode", Starting);
         print("불러오기:" + Starting);
     }
     public void ViewClick()
     {
-        print("불러오기 성공:" + PlayerPrefs.GetString("Gun Mode"));
+        print("불러오기 성공:" + PlayerPrefs.GetString("GunMode"));
     }
 }

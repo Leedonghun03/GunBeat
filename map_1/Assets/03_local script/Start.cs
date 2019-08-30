@@ -12,7 +12,7 @@ public class Start : MonoBehaviour
         print("불러오기:" + play);
 
         //게임씬으로 이동
-        Application.LoadLevel("Game");
+        Application.LoadLevel("GameUI");
     }
     public void ViewClick()
     {

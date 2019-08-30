@@ -8,11 +8,11 @@ public class OneHand : MonoBehaviour
 
     public void SaveClick()
     {
-        PlayerPrefs.SetString("Game Mode", Starting);
+        PlayerPrefs.SetString("GameMode", Starting);
         print("불러오기:" + Starting);
     }
     public void ViewClick()
     {
-        print("불러오기 성공:" + PlayerPrefs.GetString("Game Mode"));
+        print("불러오기 성공:" + PlayerPrefs.GetString("GameMode"));
     }
 }

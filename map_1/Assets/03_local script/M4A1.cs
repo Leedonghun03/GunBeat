@@ -8,11 +8,11 @@ public class M4A1 : MonoBehaviour
 
     public void SaveClick()
     {
-        PlayerPrefs.SetString("Gun Mode", Start);
+        PlayerPrefs.SetString("GunMode", Start);
         print("불러오기:" + Start);
     }
     public void ViewClick()
     {
-        print("불러오기 성공:" + PlayerPrefs.GetString("Gun Mode"));
+        print("불러오기 성공:" + PlayerPrefs.GetString("GunMode"));
     }
 }

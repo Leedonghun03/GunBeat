@@ -8,11 +8,11 @@ public class Pistol : MonoBehaviour
 
     public void SaveClick()
     {
-        PlayerPrefs.SetString("Gun Mode", StartingValue);
+        PlayerPrefs.SetString("GunMode", StartingValue);
         print("불러오기:" + StartingValue);
     }
     public void ViewClick()
     {
-        print("불러오기 성공:" + PlayerPrefs.GetString("Gun Mode"));
+        print("불러오기 성공:" + PlayerPrefs.GetString("GunMode"));
     }
 }
