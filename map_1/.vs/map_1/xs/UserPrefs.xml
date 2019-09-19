@@ -1,15 +1,23 @@
 ﻿<Properties StartupConfiguration="{7A0DEA26-7937-B0B6-88C0-939565CAC11D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/04_Script/GameControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/04_Script/CubeControl.cs">
     <Files>
-      <File FileName="Assets/04_Script/GameControl.cs" Line="16" Column="8" />
+      <File FileName="Assets/04_Script/GameControl.cs" Line="35" Column="35" />
       <File FileName="Assets/04_Script/HomeControl.cs" Line="59" Column="42" />
       <File FileName="Assets/03_local script/OneHand.cs" Line="11" Column="53" />
       <File FileName="Assets/03_local script/Start.cs" Line="11" Column="44" />
+      <File FileName="Assets/04_Script/CubeControl.cs" Line="44" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="map_1" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0c203854-2fc4-44e8-8045-b4de0454277d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7527d09b-c3f0-43aa-b748-2c70d8891af5" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
