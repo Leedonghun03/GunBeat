@@ -34,30 +34,45 @@ public class CubeControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            RaycastHit hit = new RaycastHit();
+            //RaycastHit hit = new RaycastHit();
 
-            if (true == (Physics.Raycast(ray.origin, ray.direction * 10, out hit)))   //마우스 근처에 오브젝트가 있는지 확인
-            {
+            //if (true == (Physics.Raycast(ray.origin, ray.direction * 10, out hit)))   //마우스 근처에 오브젝트가 있는지 확인
+            //{
                 //더치한 오브젝트 이름과 스크립트 포함한 오브젝트가 같으면 실행
-                if(hit.collider.name==this.gameObject.name)
-                {
+              //  if(hit.collider.name==this.gameObject.name)
+               // {
 
-                    print(hit.collider.name);
+                 //   print(hit.collider.name);
 
-                    GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat = GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat + CubePoint;
-                    GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountText.text = GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat.ToString();
+                  //  GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat = GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat + CubePoint;
+                  //  GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountText.text = GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat.ToString();
 
                     //더치시 삭제
-                    Destroy(this.gameObject);
+                   // Destroy(this.gameObject);
 
-                }
+                //}
                
 
-            }
+            //}
 
         }
+
+    }
+
+    //총이 성공적으로 큐브를 쏘았을때
+    public void SuccessClick()
+    {
+        //점수반영
+          GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat = GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat + CubePoint;
+          GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountText.text = GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat.ToString();
+        
+        
+        //터지는 애니메이션 부분
+
+        //더치시 삭제
+         Destroy(this.gameObject);
 
 
 
