@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HomeControl : MonoBehaviour
 {
-
     public string PostSongString;
     public string PostLevelString;
     public string PostGameModeString;
