@@ -53,8 +53,7 @@ public class HomeControl : MonoBehaviour
     {
        if(PostSongString != "" && PostLevelString != "" && PostGameModeString != "" && PostGunModeString != "")
         {
-            print("시작");
-
+            Debug.Log("게임 시작");
             Application.LoadLevel("GameUI");
         }
         else
@@ -65,9 +64,11 @@ public class HomeControl : MonoBehaviour
 
 
 
-
-
     }
 
+    public void ExitButton()
+    {
+        AlertPanelObject.SetActive(false);
 
+    }
 }

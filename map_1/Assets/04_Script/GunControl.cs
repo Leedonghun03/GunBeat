@@ -20,7 +20,8 @@ public class GunControl : MonoBehaviour
     //큐브들이 생성되는 부모 오보젝트
     public GameObject P_CubeZoom;
 
-
+    // 왼손은 1번, 오른손은 2번
+    public int gunNum;
 
 
     void OnCreate() { }
@@ -47,7 +48,7 @@ public class GunControl : MonoBehaviour
 
                if (P_CubeZoom.transform.Find(hit.transform.name)==true)
                 {
-                    P_CubeZoom.transform.Find(hit.transform.name).GetComponent<CubeControl>().SuccessClick();
+                    P_CubeZoom.transform.Find(hit.transform.name).GetComponent<CubeControl>().SuccessClick(gunNum);
                 }
 
 

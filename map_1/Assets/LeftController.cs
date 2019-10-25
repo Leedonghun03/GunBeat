@@ -14,7 +14,7 @@ public class LeftController : MonoBehaviour
 
     public HomeControl homeControl;
 
-
+    public GameObject AlertPanelObject;
 
     void Update()
     {
@@ -95,8 +95,13 @@ public class LeftController : MonoBehaviour
         }
         else if (number == 13)
         {
+            homeControl.PlayGameStartClick();
             Debug.Log("start이 눌렸다");
         }
-
+        else if (number == 14)
+        {
+            homeControl.ExitButton();
+            Debug.Log("게임 설정 확인 버튼 닫기");
+        }
     }
 }

@@ -76,9 +76,11 @@
     <Compile Include="Assets\03_local script\Unnablle.cs" />
     <Compile Include="Assets\04_Script\CubeControl.cs" />
     <Compile Include="Assets\04_Script\GameControl.cs" />
+    <Compile Include="Assets\04_Script\Gamemaneger.cs" />
     <Compile Include="Assets\04_Script\GunControl.cs" />
     <Compile Include="Assets\04_Script\HomeControl.cs" />
     <Compile Include="Assets\04_Script\menubring.cs" />
+    <Compile Include="Assets\04_Script\Vrbutten.cs" />
     <Compile Include="Assets\CubeTrigger.cs" />
     <Compile Include="Assets\CurvedUI\Demo Scenes\Demo Scenes Content\CUI_AnimateCurvedFillOnStart.cs" />
     <Compile Include="Assets\CurvedUI\Demo Scenes\Demo Scenes Content\CUI_CameraController.cs" />

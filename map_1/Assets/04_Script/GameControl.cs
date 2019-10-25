@@ -13,7 +13,8 @@ public class GameControl : MonoBehaviour
     public string GetSongString;
 
     //생성하려는 오브젝트 
-    public GameObject ContentPObject;
+    public GameObject[] ContentPObject;
+
 
     //생성하려는 오브젝트의 부모오브젝트 (해당 부모오브젝트 밑의 자식으로 들어가야함)
     public GameObject ContentParanet;
@@ -80,7 +81,12 @@ public class GameControl : MonoBehaviour
         {
             float RamdomX = Random.Range(-5.0f,5.1f);
 
-            GameObject ContentP = Instantiate(ContentPObject);
+
+            int ranNum = Random.Range(0, 2);
+
+            GameObject ContentP = Instantiate(ContentPObject[ranNum]);
+
+
             ContentP.transform.parent = ContentParanet.transform;
             ContentP.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             ContentP.transform.position = new Vector3(RamdomX, 2.8f, CubeStartPositioZ);
@@ -92,5 +98,4 @@ public class GameControl : MonoBehaviour
 
         yield break;
     }
-
 }

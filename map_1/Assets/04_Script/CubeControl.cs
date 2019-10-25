@@ -10,6 +10,9 @@ public class CubeControl : MonoBehaviour
     //큐브 없애면 획득포인트
     public float CubePoint;
 
+    // 왼손은 1번, 오른손은 2번
+    public int cubeNum;
+
     void Start()
     {
         
@@ -62,19 +65,19 @@ public class CubeControl : MonoBehaviour
     }
 
     //총이 성공적으로 큐브를 쏘았을때
-    public void SuccessClick()
+    public void SuccessClick(int gunNum)
     {
-        //점수반영
-          GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat = GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat + CubePoint;
-          GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountText.text = GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat.ToString();
-        
-        
-        //터지는 애니메이션 부분
-
-        //더치시 삭제
-         Destroy(this.gameObject);
+        if (cubeNum == gunNum)
+        {
+            //점수반영
+            GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat = GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat + CubePoint;
+            GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountText.text = GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat.ToString();
 
 
+            //터지는 애니메이션 부분
 
+            //더치시 삭제
+            Destroy(this.gameObject);
+        }      
     }
 }
