@@ -10,9 +10,13 @@ public class GunControl : MonoBehaviour
     public SteamVR_Input_Sources handType;  //모두 사용 왼손, 오른손
     public SteamVR_Action_Boolean teleprotAction;   //텔레포트 액션
     public SteamVR_Action_Boolean TriggerAction;   //트리거 액션
-
-    public ParticleSystem MuzzleEffecrt;
+    public ParticleSystem MuzzleEffecrt; // 파티클
     public GameObject fpsCam;
+    private AudioSource audio;
+    public AudioClip gunSound;
+
+    float fireTime = 0f;
+    float fireDelay = 0f;
 
     float range = 100.0f;
     float damage = 100.0f;
@@ -22,7 +26,6 @@ public class GunControl : MonoBehaviour
 
     // 왼손은 1번, 오른손은 2번
     public int gunNum;
-
 
     void OnCreate() { }
     void OnUpdate() { }
@@ -46,7 +49,7 @@ public class GunControl : MonoBehaviour
                 Debug.Log("Grab" + handType);
                 Debug.Log(hit.transform.name);
 
-               if (P_CubeZoom.transform.Find(hit.transform.name)==true)
+                if (P_CubeZoom.transform.Find(hit.transform.name) == true)
                 {
                     P_CubeZoom.transform.Find(hit.transform.name).GetComponent<CubeControl>().SuccessClick(gunNum);
                 }
@@ -57,19 +60,15 @@ public class GunControl : MonoBehaviour
         else
         {
             Gizmos.DrawRay(fpsCam.transform.position, fpsCam.transform.forward * maxDistance);
-         
+
         }
     }
-   
-
-
 
     void Start()
     {
-        
+        fireDelay = gunSound.length;
     }
 
-    
     void Update()
     {
         if (GetTeleportDown())
@@ -77,19 +76,26 @@ public class GunControl : MonoBehaviour
             Debug.Log("Teleport" + handType);
         }
 
-        if(GetTrigger())
+        if (GetTrigger())
         {
             Debug.Log("Grab" + handType);
-            MuzzleEffecrt.Play();
-        }
 
+            MuzzleEffecrt.Play();
+
+            if (Time.time - fireTime > fireDelay)
+            {
+                audio.PlayOneShot(gunSound);
+                Debug.Log("발사");
+                fireTime = Time.time;
+            }
+        }
 
     }
 
     // 텔레포트가 활성화되면 true 반환
     public bool GetTeleportDown()
     {
-        return teleprotAction.GetStateDown(handType);
+        return teleprotAction.GetStateDown(handType);;
     }
 
     // 잡기 액션이 활성화되어 있으면 true 반환
@@ -97,5 +103,4 @@ public class GunControl : MonoBehaviour
     {
         return TriggerAction.GetState(handType);
     }
-
 }
