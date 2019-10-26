@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CubeControl : MonoBehaviour
 {
+   
     //큐브속도
-    public float Cubespeed;
+    private float Cubespeed = 15f;
 
     //큐브 없애면 획득포인트
     public float CubePoint;
@@ -13,9 +14,12 @@ public class CubeControl : MonoBehaviour
     // 왼손은 1번, 오른손은 2번
     public int cubeNum;
 
+    public GameObject sphere;
+
+
     void Start()
     {
-        
+
     }
 
   
@@ -75,6 +79,8 @@ public class CubeControl : MonoBehaviour
 
 
             //터지는 애니메이션 부분
+            GameObject sphereObject = Instantiate(sphere, transform.position, Quaternion.identity);
+            Destroy(sphereObject, 0.40f );
 
             //더치시 삭제
             Destroy(this.gameObject);

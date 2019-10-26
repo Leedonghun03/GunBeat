@@ -7,9 +7,13 @@ public class GameControl : MonoBehaviour
 {
 
     //홈씬에서 저장한 로컬변수를 Game씬에서 시작시 불러오기
+    [HideInInspector]
     public string GetGameModeString;
+    [HideInInspector]
     public string GetLevelString;
+    [HideInInspector]
     public string GetGunModeString;
+    [HideInInspector]
     public string GetSongString;
 
     //생성하려는 오브젝트 
@@ -23,7 +27,7 @@ public class GameControl : MonoBehaviour
 
 
     //전체 게임시간
-    public float TotalGameTime;
+    private float TotalGameTime;
     //큐브 생성시간 텀 
     public float CubeCraetTime;
 
@@ -36,12 +40,15 @@ public class GameControl : MonoBehaviour
     public Text GamePointCountText;
 
 
+    // 테스트용 -> 나중에 수정 바람
+    public AudioClip gameAudio;
+    public AudioSource audioSource;
+
+
     void Start()
     {
-
-
-         //Key값 : Game Mode
-         GetGameModeString = PlayerPrefs.GetString("GameMode");
+        //Key값 : Game Mode
+        GetGameModeString = PlayerPrefs.GetString("GameMode");
         //Key값 : Level
         GetLevelString = PlayerPrefs.GetString("Level");
         //Key값 : GunMode
@@ -53,8 +60,15 @@ public class GameControl : MonoBehaviour
 
         GamePointCountText.text = GamePointCountFloat.ToString();
 
-        StartCoroutine(GameCubeCreat2e());
+        //오디오 세팅
+        audioSource.clip = gameAudio;
+        TotalGameTime = gameAudio.length;
 
+        audioSource.Play();
+
+
+        // 큐브 생성
+        StartCoroutine(GameCubeCreat2e());
     }
 
 
@@ -66,13 +80,6 @@ public class GameControl : MonoBehaviour
     }
 
 
- 
-
-    IEnumerable GameCubeCreate()
-    {
-
-        yield break;
-    }
 
     IEnumerator GameCubeCreat2e()
     {

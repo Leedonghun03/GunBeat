@@ -84,7 +84,7 @@ public class GunControl : MonoBehaviour
 
             if (Time.time - fireTime > fireDelay)
             {
-                audio.PlayOneShot(gunSound);
+                // audio.PlayOneShot(gunSound);
                 Debug.Log("발사");
                 fireTime = Time.time;
             }

@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.map20.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\hanrc\\OneDrive\\Documents\\GitHub\\VRteam\\map_1\\actions.json",
+      "action_manifest_path": "D:\\깃허브\\VRteam\\map_1\\actions.json",
       "strings": {
         "en_us": {
           "name": "map(20 [Testing]"
