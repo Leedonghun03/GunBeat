@@ -7,8 +7,6 @@ public class HomeControl : MonoBehaviour
 {
     public string PostSongString;
     public string PostLevelString;
-    public string PostGameModeString;
-    public string PostGunModeString;
 
     public GameObject AlertPanelObject;
     public Text ErrorTitleText;
@@ -32,26 +30,11 @@ public class HomeControl : MonoBehaviour
         PlayerPrefs.SetString("Level", LevelString);
     }
 
-    //GameMode 선택
-    public void ClickGameModeButton(string GameModeString)
-    {
-        PostGameModeString = GameModeString;
-        PlayerPrefs.SetString("GameMode", GameModeString);
-    }
-
-    //GunMode 선택
-    public void ClickGunModeButton(string GunModeString)
-    {
-        PostGunModeString = GunModeString;
-        PlayerPrefs.SetString("GunMode", GunModeString);
-    }
-
-
 
     //Start버튼 누르면 불러오는 함수
     public void PlayGameStartClick()
     {
-       if(PostSongString != "" && PostLevelString != "" && PostGameModeString != "" && PostGunModeString != "")
+       if(PostSongString != "" && PostLevelString != "")
         {
             Debug.Log("게임 시작");
             Application.LoadLevel("GameUI");

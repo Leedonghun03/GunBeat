@@ -13,7 +13,7 @@ public class GunControl : MonoBehaviour
     public ParticleSystem MuzzleEffecrt; // 파티클
     public GameObject fpsCam;
     private AudioSource audio;
-    public AudioClip gunSound;
+    public AudioClip GunSound;
 
     float fireTime = 0f;
     float fireDelay = 0f;
@@ -27,8 +27,8 @@ public class GunControl : MonoBehaviour
     // 왼손은 1번, 오른손은 2번
     public int gunNum;
 
-    void OnCreate() { }
-    void OnUpdate() { }
+    float currentTime = 0f;
+
 
     void OnDrawGizmos()
     {
@@ -66,7 +66,9 @@ public class GunControl : MonoBehaviour
 
     void Start()
     {
-        fireDelay = gunSound.length;
+        this.audio = this.gameObject.AddComponent<AudioSource>();
+        this.audio.clip = this.GunSound;
+        this.audio.loop = false;
     }
 
     void Update()
@@ -82,12 +84,13 @@ public class GunControl : MonoBehaviour
 
             MuzzleEffecrt.Play();
 
-            if (Time.time - fireTime > fireDelay)
+
+            if (Time.time - currentTime > 0.06f)
             {
-                // audio.PlayOneShot(gunSound);
-                Debug.Log("발사");
-                fireTime = Time.time;
+                audio.PlayOneShot(audio.clip);
+                currentTime = Time.time;
             }
+
         }
 
     }

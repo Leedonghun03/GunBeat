@@ -88,7 +88,6 @@
     <Compile Include="Assets\04_Script\spher.cs" />
     <Compile Include="Assets\04_Script\Start02.cs" />
     <Compile Include="Assets\04_Script\TwoHand.cs" />
-    <Compile Include="Assets\04_Script\Vrbutten.cs" />
     <Compile Include="Assets\06_Asset\CurvedUI\Demo Scenes\Demo Scenes Content\CUI_AnimateCurvedFillOnStart.cs" />
     <Compile Include="Assets\06_Asset\CurvedUI\Demo Scenes\Demo Scenes Content\CUI_CameraController.cs" />
     <Compile Include="Assets\06_Asset\CurvedUI\Demo Scenes\Demo Scenes Content\CUI_CameraRotationOnButtonHeld.cs" />

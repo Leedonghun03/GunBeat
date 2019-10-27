@@ -73,9 +73,11 @@ public class CubeControl : MonoBehaviour
     {
         if (cubeNum == gunNum)
         {
+            GameControl control = GameObject.Find("Manage").GetComponent<GameControl>();
+
             //점수반영
-            GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat = GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat + CubePoint;
-            GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountText.text = GameObject.Find("Manage").GetComponent<GameControl>().GamePointCountFloat.ToString();
+            control.GamePointCountFloat += CubePoint;
+            control.GamePointCountText.text = control.GamePointCountFloat.ToString();
 
 
             //터지는 애니메이션 부분
