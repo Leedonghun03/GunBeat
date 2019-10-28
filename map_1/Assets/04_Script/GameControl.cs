@@ -44,6 +44,8 @@ public class GameControl : MonoBehaviour
     public AudioClip gameAudio;
     public AudioSource audioSource;
 
+   // int cubecnt = 10;
+
 
     void Start()
     {
@@ -101,6 +103,7 @@ public class GameControl : MonoBehaviour
             ContentP.name = i.ToString();
 
             yield return new WaitForSeconds(CubeCraetTime);
+           // if()
         }
 
         yield break;
