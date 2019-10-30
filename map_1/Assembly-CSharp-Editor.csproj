@@ -65,6 +65,8 @@
     <Compile Include="Assets\06_Asset\CurvedUI\Scripts\Editor\CurvedUIInputModuleEditor.cs" />
     <Compile Include="Assets\06_Asset\CurvedUI\Scripts\Editor\CurvedUIScriptOrder.cs" />
     <Compile Include="Assets\06_Asset\CurvedUI\Scripts\Editor\CurvedUISettingsEditor.cs" />
+    <Compile Include="Assets\KriptoFX\MuzzleFlashes\Scripts\Editor\FPS_Unity_LWRP_HDRP_Pain.cs" />
+    <Compile Include="Assets\KriptoFX\MuzzleFlashes\Shaders\Editor\FPS_UberDecalGUI.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/깃허브/VRteam/map_1/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

@@ -18,19 +18,12 @@ public class GameControl : MonoBehaviour
 
     //생성하려는 오브젝트 
     public GameObject[] ContentPObject;
-
-
     //생성하려는 오브젝트의 부모오브젝트 (해당 부모오브젝트 밑의 자식으로 들어가야함)
     public GameObject ContentParanet;
-
-
-
-
     //전체 게임시간
     private float TotalGameTime;
     //큐브 생성시간 텀 
     public float CubeCraetTime;
-
     //큐브 시작 점(기준)
     public float CubeStartPositioZ;
 
@@ -44,7 +37,7 @@ public class GameControl : MonoBehaviour
     public AudioClip gameAudio;
     public AudioSource audioSource;
 
-   // int cubecnt = 10;
+    //int cubecnt = 10;
 
 
     void Start()
