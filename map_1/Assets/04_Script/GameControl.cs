@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameControl : MonoBehaviour
 {
@@ -27,6 +29,13 @@ public class GameControl : MonoBehaviour
     //큐브 시작 점(기준)
     public float CubeStartPositioZ;
 
+    // 오디오 클립들
+    public AudioClip AlexNekitaCorporateSong;
+    public AudioClip ArtegonBadBounce;
+    public AudioClip MonaWonderlickChamber;
+    public AudioClip NightLightsMarkTynerYouTube;
+    public AudioClip PeyruisFeelinMe;
+
 
     //게임포인트
     public float GamePointCountFloat;
@@ -34,14 +43,18 @@ public class GameControl : MonoBehaviour
 
 
     // 테스트용 -> 나중에 수정 바람
-    public AudioClip gameAudio;
-    public AudioSource audioSource;
+
+    private AudioSource audioSource;
 
     //int cubecnt = 10;
 
 
     void Start()
     {
+
+
+        audioSource = GetComponent<AudioSource>();
+
         //Key값 : Game Mode
         GetGameModeString = PlayerPrefs.GetString("GameMode");
         //Key값 : Level
@@ -56,32 +69,65 @@ public class GameControl : MonoBehaviour
         GamePointCountText.text = GamePointCountFloat.ToString();
 
         //오디오 세팅
-        audioSource.clip = gameAudio;
-        TotalGameTime = gameAudio.length;
-
-        audioSource.Play();
+        SelectAudioClip();
 
 
         // 큐브 생성
         StartCoroutine(GameCubeCreat2e());
+
+    }
+
+    void SelectAudioClip()
+    {
+        if (GetSongString == "AlexNekitaCorporateSong")
+        {
+            audioSource.clip = AlexNekitaCorporateSong;
+            audioSource.Play();
+        }
+        else if (GetSongString == "ArtegonBadBounce")
+        {
+            audioSource.clip = ArtegonBadBounce;
+            audioSource.Play();
+        }
+        else if (GetSongString == "MonaWonderlickChamber")
+        {
+            audioSource.clip = MonaWonderlickChamber;
+            audioSource.Play();
+        }
+        else if (GetSongString == "NightLightsMarkTynerYouTube")
+        {
+            audioSource.clip = NightLightsMarkTynerYouTube;
+            audioSource.Play();
+        }
+        else if (GetSongString == " PeyruisFeelinMe")
+        {
+            audioSource.clip = PeyruisFeelinMe;
+            audioSource.Play();
+        }
+
+
+        TotalGameTime = audioSource.clip.length;
     }
 
 
+
+
+
+    // GAMEUI에 버튼추가필요
     public void HomeGoClick()
     {
 
         Application.LoadLevel("Home");
-       
+
     }
 
 
 
     IEnumerator GameCubeCreat2e()
     {
-
-        for(int i=0; i< TotalGameTime; i++)
+        for (int i = 0; i < TotalGameTime; i++)
         {
-            float RamdomX = Random.Range(-5.0f,5.1f);
+            float RamdomX = Random.Range(-5.0f, 5.1f);
 
 
             int ranNum = Random.Range(0, 2);
@@ -96,9 +142,17 @@ public class GameControl : MonoBehaviour
             ContentP.name = i.ToString();
 
             yield return new WaitForSeconds(CubeCraetTime);
-           // if()
+            // if()
         }
 
-        yield break;
+        yield return new WaitForSeconds(7.0f);
+        ChangeGameScene();
+
+    }
+
+    // 노래가 끝나면 홈씬으로 넘어간다.
+    public void ChangeGameScene()
+    {
+        SceneManager.LoadScene("Home");
     }
 }

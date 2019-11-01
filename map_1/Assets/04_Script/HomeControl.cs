@@ -10,7 +10,7 @@ public class HomeControl : MonoBehaviour
 
     public GameObject AlertPanelObject;
     public Text ErrorTitleText;
-
+  
     void Start()
     {
         

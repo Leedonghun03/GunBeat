@@ -16,13 +16,17 @@ public class CubeControl : MonoBehaviour
 
     public GameObject sphere;
 
+    private UserInterFace manager;
+
 
     void Start()
     {
 
+        manager = GameObject.Find("Manage").GetComponent<UserInterFace>();
+
     }
 
-  
+
     void Update()
     {
    
@@ -30,6 +34,9 @@ public class CubeControl : MonoBehaviour
         {
             //z좌표가 2일때 삭제
             Destroy(this.gameObject);
+
+            manager.healthBar1();
+
         }
         else
         {

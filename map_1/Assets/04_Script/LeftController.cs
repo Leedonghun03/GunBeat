@@ -29,28 +29,28 @@ public class LeftController : MonoBehaviour
     {
         if (number == 0)
         {
-            homeControl.ClickSongButton("Die In A Fire");
-            Debug.Log("Die in A fire이 눌렸다");
+            homeControl.ClickSongButton("AlexNekitaCorporateSong");
+            Debug.Log("Alex Nekita - Corporate Song이 눌렸다");
         }
         else if (number == 1)
         {
-            homeControl.ClickSongButton("snebon sakula");
-            Debug.Log("snebon sakula이 눌렸다");
+            homeControl.ClickSongButton("ArtegonBadBounce");
+            Debug.Log("Artegon - Bad Bounce이 눌렸다");
         }
         else if (number == 2)
         {
-            homeControl.ClickSongButton("Happy");
-            Debug.Log("Happy이 눌렸다");
+            homeControl.ClickSongButton("MonaWonderlickChamber");
+            Debug.Log("Mona Wonderlick - Chamber이 눌렸다");
         }
         else if (number == 3)
         {
-            homeControl.ClickSongButton("Fire bird");
-            Debug.Log("Fire bird이 눌렸다");
+            homeControl.ClickSongButton("NightLightsMarkTynerYouTube");
+            Debug.Log("Night Lights - Mark Tyner - YouTube이 눌렸다");
         }
         else if (number == 4)
         {
-            homeControl.ClickSongButton("unrablle");
-            Debug.Log("unrablle이 눌렸다");
+            homeControl.ClickSongButton("PeyruisFeelinMe");
+            Debug.Log("Peyruis - Feelin' Me이 눌렸다");
         }
         else if (number == 5)
         {

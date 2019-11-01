@@ -7,8 +7,11 @@ public class UserInterFace : MonoBehaviour
 {
 
     public Slider healthBar;
-    public float Damage;
 
+    public void healthBar1()
+    {
+        healthBar.value -= 10;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +21,6 @@ public class UserInterFace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.H))
-        {
-            healthBar.value -= Damage;
-        }
+        
     }
 }
