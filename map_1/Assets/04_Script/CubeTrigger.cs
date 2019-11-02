@@ -13,7 +13,6 @@ public class CubeTrigger : MonoBehaviour
             leftController.ischecking = true;
 
             menubring test = other.GetComponent<menubring>();
-            Debug.Log(test);
 
             if (test != null)
             {

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour
 {
-
+    
     //홈씬에서 저장한 로컬변수를 Game씬에서 시작시 불러오기
     [HideInInspector]
     public string GetGameModeString;
@@ -48,7 +48,6 @@ public class GameControl : MonoBehaviour
 
     //int cubecnt = 10;
 
-
     void Start()
     {
 
@@ -71,10 +70,25 @@ public class GameControl : MonoBehaviour
         //오디오 세팅
         SelectAudioClip();
 
-
-        // 큐브 생성
+        Debug.Log(GetLevelString);
+     
+        
+        if(GetLevelString == "Easy")
+        {
+            Debug.Log("속도가 0.5로 설정되었다");
+            CubeCraetTime = 1.5f;
+        }
+        if(GetLevelString == "nomal")
+        {
+            CubeCraetTime = 1f;
+        }
+        if(GetLevelString == "hard")
+        {
+            CubeCraetTime = 0.5f;
+            Debug.Log("0.3초로 변경되었다");
+        }
+      // 큐브 생성
         StartCoroutine(GameCubeCreat2e());
-
     }
 
     void SelectAudioClip()
@@ -127,22 +141,27 @@ public class GameControl : MonoBehaviour
     {
         for (int i = 0; i < TotalGameTime; i++)
         {
-            float RamdomX = Random.Range(-5.0f, 5.1f);
-
+            float RamdomZ = Random.Range(-2.0f, 2.0f);
 
             int ranNum = Random.Range(0, 2);
 
             GameObject ContentP = Instantiate(ContentPObject[ranNum]);
 
-
             ContentP.transform.parent = ContentParanet.transform;
-            ContentP.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            ContentP.transform.position = new Vector3(RamdomX, 2.8f, CubeStartPositioZ);
+            ContentP.transform.rotation = ContentParanet.transform.rotation;
+            ContentP.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+
+
+            Vector3 randomPos = ContentParanet.transform.position;
+
+            randomPos.z += RamdomZ;
+
+            ContentP.transform.position = randomPos;
+
 
             ContentP.name = i.ToString();
 
             yield return new WaitForSeconds(CubeCraetTime);
-            // if()
         }
 
         yield return new WaitForSeconds(7.0f);

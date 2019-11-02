@@ -11,7 +11,7 @@ public class GunControl : MonoBehaviour
     public SteamVR_Action_Boolean teleprotAction;   //텔레포트 액션
     public SteamVR_Action_Boolean TriggerAction;   //트리거 액션
     public ParticleSystem MuzzleEffecrt; // 파티클
-    public GameObject fpsCam;
+    public GameObject laser;
     private AudioSource audio;
     public AudioClip GunSound;
 
@@ -29,40 +29,9 @@ public class GunControl : MonoBehaviour
 
     float currentTime = 0f;
 
+    public bool isHit;
+    private float shootDistance = 7f;
 
-    void OnDrawGizmos()
-    {
-
-        float maxDistance = 100;
-        RaycastHit hit;
-        // Physics.Raycast (레이저를 발사할 위치, 발사 방향, 충돌 결과, 최대 거리)
-        bool isHit = Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, maxDistance);
-
-        Gizmos.color = Color.red;
-        if (isHit)
-        {
-            Gizmos.DrawRay(fpsCam.transform.position, fpsCam.transform.forward * hit.distance);
-            //요기요기!!
-
-            if (GetTrigger())
-            {
-                Debug.Log("Grab" + handType);
-                Debug.Log(hit.transform.name);
-
-                if (P_CubeZoom.transform.Find(hit.transform.name) == true)
-                {
-                    P_CubeZoom.transform.Find(hit.transform.name).GetComponent<CubeControl>().SuccessClick(gunNum);
-                }
-
-
-            }
-        }
-        else
-        {
-            Gizmos.DrawRay(fpsCam.transform.position, fpsCam.transform.forward * maxDistance);
-
-        }
-    }
 
     void Start()
     {
@@ -73,27 +42,40 @@ public class GunControl : MonoBehaviour
 
     void Update()
     {
-        if (GetTeleportDown())
-        {
-            Debug.Log("Teleport" + handType);
-        }
+        RaycastHit hit;
+        isHit = Physics.Raycast(laser.transform.position, laser.transform.forward, out hit, shootDistance);
+
+        Debug.DrawRay(laser.transform.position, laser.transform.forward * shootDistance);
 
         if (GetTrigger())
         {
-            Debug.Log("Grab" + handType);
-
             MuzzleEffecrt.Play();
 
+            Shoot(hit);
 
             if (Time.time - currentTime > 0.06f)
             {
                 audio.PlayOneShot(audio.clip);
                 currentTime = Time.time;
             }
-
         }
-
     }
+
+
+    void Shoot(RaycastHit hitInfo)
+    {
+        if (!isHit)
+            return;
+
+        CubeControl cubeControl = hitInfo.transform.GetComponent<CubeControl>();
+
+        if (cubeControl != null)
+        {
+            cubeControl.SuccessClick(gunNum);
+            Debug.Log("큐브 맞춤");
+        }
+    }
+
 
     // 텔레포트가 활성화되면 true 반환
     public bool GetTeleportDown()
