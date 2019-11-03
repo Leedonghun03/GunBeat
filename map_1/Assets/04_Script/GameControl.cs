@@ -73,9 +73,9 @@ public class GameControl : MonoBehaviour
         Debug.Log(GetLevelString);
      
         
-        if(GetLevelString == "Easy")
+        if(GetLevelString == "easy")
         {
-            Debug.Log("속도가 0.5로 설정되었다");
+            Debug.Log("속도가 1.5로 설정되었다");
             CubeCraetTime = 1.5f;
         }
         if(GetLevelString == "nomal")
@@ -85,7 +85,7 @@ public class GameControl : MonoBehaviour
         if(GetLevelString == "hard")
         {
             CubeCraetTime = 0.5f;
-            Debug.Log("0.3초로 변경되었다");
+            Debug.Log("0.5초로 변경되었다");
         }
       // 큐브 생성
         StartCoroutine(GameCubeCreat2e());
@@ -93,27 +93,27 @@ public class GameControl : MonoBehaviour
 
     void SelectAudioClip()
     {
-        if (GetSongString == "AlexNekitaCorporateSong")
+        if (GetSongString == "CorporateSong")
         {
             audioSource.clip = AlexNekitaCorporateSong;
             audioSource.Play();
         }
-        else if (GetSongString == "ArtegonBadBounce")
+        else if (GetSongString == "Bad Bounce")
         {
             audioSource.clip = ArtegonBadBounce;
             audioSource.Play();
         }
-        else if (GetSongString == "MonaWonderlickChamber")
+        else if (GetSongString == "Chamber")
         {
             audioSource.clip = MonaWonderlickChamber;
             audioSource.Play();
         }
-        else if (GetSongString == "NightLightsMarkTynerYouTube")
+        else if (GetSongString == "Night Lights")
         {
             audioSource.clip = NightLightsMarkTynerYouTube;
             audioSource.Play();
         }
-        else if (GetSongString == " PeyruisFeelinMe")
+        else if (GetSongString == " Peyruis")
         {
             audioSource.clip = PeyruisFeelinMe;
             audioSource.Play();

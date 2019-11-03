@@ -28,15 +28,15 @@ public class CubeControl : MonoBehaviour
         manager = GameObject.Find("Manage").GetComponent<UserInterFace>();
         control = GameObject.Find("Manage").GetComponent<GameControl>();
 
-        if (GetLevelString == "Easy")
+        if (GetLevelString == "easy")
         {
             Cubespeed = 15;
         }
-        if (GetLevelString == "Nomal")
+        if (GetLevelString == "nomal")
         {
             Cubespeed = 30;
         }
-        if (GetLevelString == "Hard")
+        if (GetLevelString == "hard")
         {
             Cubespeed = 50;
         }

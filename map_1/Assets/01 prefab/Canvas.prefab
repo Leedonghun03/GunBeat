@@ -116,11 +116,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: 413.37576, y: 287.576, z: 0}
+  savedPos: {x: 365.57007, y: -138.91983, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 387.86548, y: 100}
   savedColor: {r: 1, g: 1, b: 1, a: 1}
-  savedTextUV0: {x: 0.2578125, y: 0.19140625}
+  savedTextUV0: {x: 0.40625, y: 0.86328125}
   savedFill: 0
 --- !u!1 &370707889485966388
 GameObject:
@@ -424,7 +424,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 320, y: 60.000004}
   savedColor: {r: 1, g: 1, b: 1, a: 1}
-  savedTextUV0: {x: 0.41796875, y: 0.14453125}
+  savedTextUV0: {x: 0.66796875, y: 0.10546875}
   savedFill: 0
 --- !u!1 &370707889597387234
 GameObject:
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: -544.1346, y: -70.00415, z: 0}
+  savedPos: {x: -307.70874, y: -70.00351, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 467.86548, y: 819.9918}
   savedColor: {r: 1, g: 1, b: 1, a: 0.522}
@@ -985,7 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: 167.66371, y: -276.25204, z: 0}
+  savedPos: {x: 119.87305, y: -276.25275, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 467.86548, y: 407.4959}
   savedColor: {r: 1, g: 1, b: 1, a: 0.522}
@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: 167.66357, y: -480.00336, z: 0}
+  savedPos: {x: 62.530518, y: -564.5027, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 467.86548, y: 269.99728}
   savedColor: {r: 0, g: 0, b: 0, a: 0.441}
@@ -1725,7 +1725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: 87.265015, y: 423.98834, z: 0}
+  savedPos: {x: 39.45923, y: 423.99216, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 935.73096, y: 100}
   savedColor: {r: 0, g: 0, b: 0, a: 0.441}
@@ -1820,7 +1820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: -725.20184, y: 277.9959, z: 0}
+  savedPos: {x: -370.54443, y: 277.99606, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 180, y: 60}
   savedColor: {r: 0, g: 0.5862067, b: 1, a: 1}
@@ -2193,11 +2193,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: -549.7018, y: 283.00592, z: 0}
+  savedPos: {x: -195.06836, y: 283.00476, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 180, y: 60.000004}
   savedColor: {r: 1, g: 1, b: 1, a: 1}
-  savedTextUV0: {x: 0.56640625, y: 0.08203125}
+  savedTextUV0: {x: 0.6484375, y: 0.2109375}
   savedFill: 0
 --- !u!1 &370707890571493924
 GameObject:
@@ -2552,7 +2552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: 161.66371, y: 277.49597, z: 0}
+  savedPos: {x: 113.861084, y: -148.99826, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 467.86548, y: 100}
   savedColor: {r: 0, g: 0, b: 0, a: 0.441}
@@ -2705,7 +2705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: 167.66371, y: 136.24394, z: 0}
+  savedPos: {x: 119.87305, y: 136.24573, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 467.86548, y: 407.4959}
   savedColor: {r: 1, g: 1, b: 1, a: 0.522}
@@ -2800,7 +2800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: -500.2018, y: 425.9959, z: 0}
+  savedPos: {x: -145.56885, y: 425.99487, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 180, y: 60}
   savedColor: {r: 0, g: 0.5862067, b: 1, a: 1}
@@ -3349,11 +3349,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: 426.5747, y: -270.27893, z: 0}
+  savedPos: {x: 321.44165, y: -354.7821, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 387.86548, y: 269.99728}
   savedColor: {r: 1, g: 1, b: 1, a: 1}
-  savedTextUV0: {x: 0.2578125, y: 0.19140625}
+  savedTextUV0: {x: 0.40625, y: 0.86328125}
   savedFill: 0
 --- !u!1 &370707890998830239
 GameObject:
@@ -3469,11 +3469,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: -223.0018, y: 432.0559, z: 0}
+  savedPos: {x: 131.65283, y: 432.05643, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 180, y: 60.000004}
   savedColor: {r: 1, g: 1, b: 1, a: 1}
-  savedTextUV0: {x: 0.69140625, y: 0}
+  savedTextUV0: {x: 0.578125, y: 0.07421875}
   savedFill: 0
 --- !u!1 &370707891022114866
 GameObject:
@@ -4120,7 +4120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoNotTesselate: 0
-  savedPos: {x: 351.25732, y: -57.502747, z: 0}
+  savedPos: {x: 303.4668, y: -57.502747, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 467.86548, y: 100}
   savedColor: {r: 0, g: 0, b: 0, a: 0.441}

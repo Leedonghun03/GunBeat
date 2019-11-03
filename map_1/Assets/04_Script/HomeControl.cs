@@ -20,7 +20,7 @@ public class HomeControl : MonoBehaviour
     public void ClickSongButton(string SongString)
     {
         PostSongString = SongString;
-        PlayerPrefs.SetString("Song", SongString);
+        PlayerPrefs.SetString("Song", SongString);       
     }
 
     //Level 선택
@@ -44,10 +44,9 @@ public class HomeControl : MonoBehaviour
             AlertPanelObject.SetActive(true);
             ErrorTitleText.text = "설정 확인해주세요.";
         }
-
-
-
     }
+
+
 
     public void ExitButton()
     {
