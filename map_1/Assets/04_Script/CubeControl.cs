@@ -38,7 +38,7 @@ public class CubeControl : MonoBehaviour
         }
         if (GetLevelString == "hard")
         {
-            Cubespeed = 50;
+            Cubespeed = 70;
         }
     }
 

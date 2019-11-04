@@ -6,7 +6,7 @@ using Valve.VR;
 
 public class GunControl : MonoBehaviour
 {
-
+   
     public SteamVR_Input_Sources handType;  //모두 사용 왼손, 오른손
     public SteamVR_Action_Boolean teleprotAction;   //텔레포트 액션
     public SteamVR_Action_Boolean TriggerAction;   //트리거 액션
@@ -15,6 +15,8 @@ public class GunControl : MonoBehaviour
     private AudioSource audio;
     public AudioClip GunSound;
 
+    float timer;
+    float delaytime = 0.3f;
     float fireTime = 0f;
     float fireDelay = 0f;
 
@@ -38,25 +40,33 @@ public class GunControl : MonoBehaviour
         this.audio = this.gameObject.AddComponent<AudioSource>();
         this.audio.clip = this.GunSound;
         this.audio.loop = false;
+        timer = 0.0f;    
+
     }
 
     void Update()
     {
+        
         RaycastHit hit;
         isHit = Physics.Raycast(laser.transform.position, laser.transform.forward, out hit, shootDistance);
 
         Debug.DrawRay(laser.transform.position, laser.transform.forward * shootDistance);
-
+        timer += Time.deltaTime;
+       
         if (GetTrigger())
         {
-            MuzzleEffecrt.Play();
-
-            Shoot(hit);
-
-            if (Time.time - currentTime > 0.06f)
+            if (timer > delaytime)
             {
-                audio.PlayOneShot(audio.clip);
-                currentTime = Time.time;
+                MuzzleEffecrt.Play();
+
+                Shoot(hit);
+
+                if (Time.time - currentTime > 0.06f)
+                {
+                    audio.PlayOneShot(audio.clip);
+                    currentTime = Time.time;
+                    timer = 0.0f;
+                }
             }
         }
     }

@@ -84,7 +84,7 @@ public class GameControl : MonoBehaviour
         }
         if(GetLevelString == "hard")
         {
-            CubeCraetTime = 0.5f;
+            CubeCraetTime = 0.3f;
             Debug.Log("0.5초로 변경되었다");
         }
       // 큐브 생성
@@ -113,7 +113,7 @@ public class GameControl : MonoBehaviour
             audioSource.clip = NightLightsMarkTynerYouTube;
             audioSource.Play();
         }
-        else if (GetSongString == " Peyruis")
+        else if (GetSongString == "Peyruis")
         {
             audioSource.clip = PeyruisFeelinMe;
             audioSource.Play();
@@ -164,7 +164,7 @@ public class GameControl : MonoBehaviour
             yield return new WaitForSeconds(CubeCraetTime);
         }
 
-        yield return new WaitForSeconds(7.0f);
+        yield return new WaitForSeconds(4.0f);
         ChangeGameScene();
 
     }
