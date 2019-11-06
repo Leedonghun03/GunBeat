@@ -13,8 +13,12 @@ public class CubeControl : MonoBehaviour
     //큐브 없애면 획득포인트
     public float CubePoint;
 
+    public float Combo;
+
     // 왼손은 1번, 오른손은 2번
     public int cubeNum;
+
+    public int ComboNum;
 
     public GameObject sphere;
 
@@ -46,6 +50,7 @@ public class CubeControl : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.back * Time.deltaTime * Cubespeed);
+
     }
 
 
@@ -57,8 +62,7 @@ public class CubeControl : MonoBehaviour
             //점수반영
             control.GamePointCountFloat += CubePoint;
             control.GamePointCountText.text = control.GamePointCountFloat.ToString();
-
-
+         
             //터지는 애니메이션 부분
             GameObject sphereObject = Instantiate(sphere, transform.position, Quaternion.identity);
             Destroy(sphereObject, 0.40f );
@@ -66,6 +70,11 @@ public class CubeControl : MonoBehaviour
             //터치시 삭제
             Destroy(this.gameObject);
         }      
+        if (ComboNum == gunNum)
+        {
+            control.GameComboCountFloat += Combo;
+            control.GameComboCountText.text = control.GameComboCountFloat.ToString();
+        }
     }
 
 

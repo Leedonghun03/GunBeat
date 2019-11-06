@@ -104,6 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a8b341e0e3b4c34afb352f627bab69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CubePoint: 5
+  GetLevelString: 
+  CubePoint: 10
+  Combo: 1
   cubeNum: 2
+  ComboNum: 2
   sphere: {fileID: 149448, guid: e582ae13e0da89848b3f3d58889817e7, type: 3}

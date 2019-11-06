@@ -198,6 +198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GetLevelString: 
-  CubePoint: 5
+  CubePoint: 10
+  Combo: 1
   cubeNum: 1
+  ComboNum: 1
   sphere: {fileID: 149448, guid: e582ae13e0da89848b3f3d58889817e7, type: 3}

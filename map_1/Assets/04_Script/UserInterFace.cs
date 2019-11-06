@@ -9,11 +9,11 @@ public class UserInterFace : MonoBehaviour
 {
     public GameObject textObject;
     public Slider healthBar;
-
     private float currentTime = 0f;
     private float MaxTime = 5.0f;
 
     private bool isTimeCheck = false;
+
 
     
 
@@ -29,11 +29,10 @@ public class UserInterFace : MonoBehaviour
             return;
 
         healthBar.value -= 10;
-
+       
         if (healthBar.value <= 0)
-        {
+        {           
             isTimeCheck = true;
-        
             textObject.SetActive(true);
         }
     

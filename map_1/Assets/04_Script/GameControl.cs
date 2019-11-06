@@ -40,7 +40,8 @@ public class GameControl : MonoBehaviour
     //게임포인트
     public float GamePointCountFloat;
     public Text GamePointCountText;
-
+    public float GameComboCountFloat;
+    public Text GameComboCountText;
 
     // 테스트용 -> 나중에 수정 바람
 
@@ -65,7 +66,11 @@ public class GameControl : MonoBehaviour
 
         GamePointCountFloat = 0;
 
+        GameComboCountFloat = 0;      
+
         GamePointCountText.text = GamePointCountFloat.ToString();
+
+        GameComboCountText.text = GameComboCountFloat.ToString();
 
         //오디오 세팅
         SelectAudioClip();
