@@ -66,9 +66,9 @@ public class GameControl : MonoBehaviour
 
         GamePointCountFloat = 0;
 
-        GameComboCountFloat = 0;      
+        GameComboCountFloat = 0;
 
-        GamePointCountText.text = GamePointCountFloat.ToString();
+        GamePointCountText.text =  GamePointCountFloat.ToString();
 
         GameComboCountText.text = GameComboCountFloat.ToString();
 
@@ -89,11 +89,17 @@ public class GameControl : MonoBehaviour
         }
         if(GetLevelString == "hard")
         {
-            CubeCraetTime = 0.3f;
-            Debug.Log("0.5초로 변경되었다");
+            CubeCraetTime = 0.26f;
+            Debug.Log("0.25초로 변경되었다");
         }
-      // 큐브 생성
+        // 큐브 생성
         StartCoroutine(GameCubeCreat2e());
+    }
+
+    void Update()
+    {
+        GamePointCountText.text = GamePointCountFloat.ToString();
+        GameComboCountText.text = GameComboCountFloat.ToString();
     }
 
     void SelectAudioClip()

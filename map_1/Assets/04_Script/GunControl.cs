@@ -16,7 +16,7 @@ public class GunControl : MonoBehaviour
     public AudioClip GunSound;
 
     float timer;
-    float delaytime = 0.3f;
+    float delaytime = 0.2f;
     float fireTime = 0f;
     float fireDelay = 0f;
 
@@ -45,8 +45,7 @@ public class GunControl : MonoBehaviour
     }
 
     void Update()
-    {
-        
+    {        
         RaycastHit hit;
         isHit = Physics.Raycast(laser.transform.position, laser.transform.forward, out hit, shootDistance);
 

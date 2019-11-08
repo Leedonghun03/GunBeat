@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 4966280119064836882}
   - component: {fileID: 5770914662623478882}
   - component: {fileID: 4908548297009242129}
-  - component: {fileID: 406142608624782158}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,20 +77,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &406142608624782158
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2786380706270941845}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &8391365557493948461
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +90,7 @@ GameObject:
   - component: {fileID: 8391365557493948456}
   - component: {fileID: 8391365557493948459}
   - component: {fileID: 8391365557493948454}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: blueCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

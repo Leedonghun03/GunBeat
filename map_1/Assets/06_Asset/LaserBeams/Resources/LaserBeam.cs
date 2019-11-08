@@ -18,6 +18,8 @@ namespace Trickstorm
         public GameObject LaserStartLight;
         public GameObject LaserEndLight;
 
+        public GameObject spherePoint;
+
 
         private LineRenderer _lineRenderer;
         private Light _laserStartLight;
@@ -80,6 +82,8 @@ namespace Trickstorm
                 _lineRenderer.SetPosition(1, endPoint);          
                 _laserEndLight.transform.position = hit.point;
                 _laserEndLight.transform.localPosition -= Vector3.forward / 10;
+
+                spherePoint.transform.localPosition = endPoint;
             }
             else
             {
@@ -92,7 +96,9 @@ namespace Trickstorm
 
                 _laserEndLight.transform.localPosition = Vector3.zero;
                 _lineRenderer.SetPosition(1, endPoint);
-            }
+
+                spherePoint.transform.localPosition = endPoint;
+            }            
         }
     }
 }

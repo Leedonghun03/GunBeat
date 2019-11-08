@@ -42,17 +42,16 @@ public class CubeControl : MonoBehaviour
         }
         if (GetLevelString == "hard")
         {
-            Cubespeed = 70;
+            Cubespeed = 80;
         }
+
     }
 
 
     void Update()
     {
         transform.Translate(Vector3.back * Time.deltaTime * Cubespeed);
-
     }
-
 
     //총이 성공적으로 큐브를 쏘았을때
     public void SuccessClick(int gunNum)
@@ -81,10 +80,10 @@ public class CubeControl : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("CubeDestroyZone"))
-        {
-            Destroy(this.gameObject);
+        {           
+            Destroy(this.gameObject);      
 
             manager.healthBar1();
-        }
+        }        
     }
 }
