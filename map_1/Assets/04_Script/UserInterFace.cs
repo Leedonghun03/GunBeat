@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Valve.VR;
 
 
 public class UserInterFace : MonoBehaviour
 {
-    public Text GameComboCountText; 
+    public Text GameComboCountText;
     public float Combo;
-    public GameObject textObject;
+    public GameObject failCanvas;
     public Slider healthBar;
     private float currentTime = 0f;
-    private float MaxTime = 5.0f;
+    private float MaxTime = 3.0f;
 
     private GameControl control;
 
     private bool isTimeCheck = false;
 
-
-    
 
     public void Start()
     {
@@ -35,33 +34,35 @@ public class UserInterFace : MonoBehaviour
             return;
 
         healthBar.value -= 10;
-         if(control.GameComboCountFloat >= 0)
-         {
+
+        if (control.GameComboCountFloat >= 0)
+        {
             control.GameComboCountFloat = 0;
             control.GameComboCountText.text = "0Combo";
-         }
-        if (healthBar.value <= 0)
-        {           
-            isTimeCheck = true;
-            textObject.SetActive(true);
-           
         }
-  
+        if (healthBar.value <= 0)
+        {
+            isTimeCheck = true;
+            failCanvas.SetActive(true);
+
+            control.GameOver();
+        }
     }
 
+    /*
     public void Update()
     {
         if (isTimeCheck == true)
         {
-            currentTime += Time.deltaTime;
-        
+            currentTime += Time.deltaTime;            
+
             if (currentTime > MaxTime)
             {
-                currentTime = 0f;
-                Debug.Log("5초가 지났다");
-                textObject.SetActive(false);
+                isTimeCheck = false;
+                failCanvas.SetActive(false);
                 SceneManager.LoadScene("Home");
             }
         }
     }
+    */
 }

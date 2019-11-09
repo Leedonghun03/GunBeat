@@ -20,37 +20,44 @@ public class CubeControl : MonoBehaviour
 
     public int ComboNum;
 
-    public GameObject sphere;
-
     private UserInterFace manager;
 
     private GameControl control;
 
+    Material mat;
+
+    Material childMat;
+
+    BoxCollider boxColl;
 
     void Start()
     {
         manager = GameObject.Find("Manage").GetComponent<UserInterFace>();
         control = GameObject.Find("Manage").GetComponent<GameControl>();
 
+        boxColl = GetComponent<BoxCollider>();
+
         if (GetLevelString == "easy")
         {
-            Cubespeed = 15;
+            Cubespeed = 40;
         }
         if (GetLevelString == "nomal")
         {
-            Cubespeed = 30;
+            Cubespeed = 60;
         }
         if (GetLevelString == "hard")
         {
-            Cubespeed = 80;
+            Cubespeed = 85;
         }
 
+        mat = GetComponent<MeshRenderer>().material;
+        childMat = transform.GetChild(0).GetComponent<MeshRenderer>().material;
     }
 
 
     void Update()
     {
-        transform.Translate(Vector3.back * Time.deltaTime * Cubespeed);
+        transform.Translate(Vector3.back * Time.deltaTime * Cubespeed);       
     }
 
     //총이 성공적으로 큐브를 쏘았을때
@@ -61,14 +68,11 @@ public class CubeControl : MonoBehaviour
             //점수반영
             control.GamePointCountFloat += CubePoint;
             control.GamePointCountText.text = control.GamePointCountFloat.ToString();
-         
-            //터지는 애니메이션 부분
-            GameObject sphereObject = Instantiate(sphere, transform.position, Quaternion.identity);
-            Destroy(sphereObject, 0.40f );
 
             //터치시 삭제
-            Destroy(this.gameObject);
-        }      
+            StartCoroutine(CubeDissolve());
+            boxColl.enabled = false;
+        }
         if (ComboNum == gunNum)
         {
             control.GameComboCountFloat += Combo;
@@ -76,14 +80,32 @@ public class CubeControl : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("CubeDestroyZone"))
-        {           
-            Destroy(this.gameObject);      
-
+        {         
             manager.healthBar1();
+
+            Destroy(this.gameObject);
         }        
+    }
+
+
+
+    IEnumerator CubeDissolve()
+    {
+        float currentTime = 0;
+
+        while (currentTime < 0.5f)
+        {
+            currentTime += Time.deltaTime;
+            mat.SetFloat("_DissolveAmount", Mathf.Sin(currentTime * 2f));
+            childMat.SetFloat("_DissolveAmount", Mathf.Sin(currentTime * 2f));
+            yield return null;
+        }
+
+        childMat.SetFloat("_DissolveAmount", 1);
+
+        Destroy(gameObject);
     }
 }

@@ -3,20 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Valve.VR;
 
 
 public class GameControl : MonoBehaviour
 {
-    
     //홈씬에서 저장한 로컬변수를 Game씬에서 시작시 불러오기
-    [HideInInspector]
-    public string GetGameModeString;
-    [HideInInspector]
-    public string GetLevelString;
-    [HideInInspector]
-    public string GetGunModeString;
-    [HideInInspector]
-    public string GetSongString;
+    [HideInInspector] public string GetGameModeString;
+    [HideInInspector] public string GetLevelString;
+    [HideInInspector] public string GetGunModeString;
+    [HideInInspector] public string GetSongString;
 
     //생성하려는 오브젝트 
     public GameObject[] ContentPObject;
@@ -45,55 +41,26 @@ public class GameControl : MonoBehaviour
 
     // 테스트용 -> 나중에 수정 바람
 
-    private AudioSource audioSource;
+    private AudioSource audioSource = null;
+    private float volumeDownSpeed = 0.8f;
 
-    //int cubecnt = 10;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Start()
     {
-
-
-        audioSource = GetComponent<AudioSource>();
-
-        //Key값 : Game Mode
-        GetGameModeString = PlayerPrefs.GetString("GameMode");
-        //Key값 : Level
-        GetLevelString = PlayerPrefs.GetString("Level");
-        //Key값 : GunMode
-        GetGunModeString = PlayerPrefs.GetString("GunMode");
-        //Key값 : Song
-        GetSongString = PlayerPrefs.GetString("Song");
-
-        GamePointCountFloat = 0;
-
-        GameComboCountFloat = 0;
-
-        GamePointCountText.text =  GamePointCountFloat.ToString();
-
-        GameComboCountText.text = GameComboCountFloat.ToString();
-
+        // PlayerPrefs 값 획득
+        GetPlayerPrefs();
+        // 게임 초기 세팅
+        InitializeSetting();
         //오디오 세팅
-        SelectAudioClip();
+        SetAudioClip();
 
-        Debug.Log(GetLevelString);
-     
-        
-        if(GetLevelString == "easy")
-        {
-            Debug.Log("속도가 1.5로 설정되었다");
-            CubeCraetTime = 1.5f;
-        }
-        if(GetLevelString == "nomal")
-        {
-            CubeCraetTime = 1f;
-        }
-        if(GetLevelString == "hard")
-        {
-            CubeCraetTime = 0.26f;
-            Debug.Log("0.25초로 변경되었다");
-        }
         // 큐브 생성
-        StartCoroutine(GameCubeCreat2e());
+        StartCoroutine(GameCubeCreate());
     }
 
     void Update()
@@ -102,58 +69,83 @@ public class GameControl : MonoBehaviour
         GameComboCountText.text = GameComboCountFloat.ToString();
     }
 
-    void SelectAudioClip()
+    void InitializeSetting()
+    {
+        GamePointCountFloat = 0;
+        GameComboCountFloat = 0;
+        GamePointCountText.text = GamePointCountFloat.ToString();
+        GameComboCountText.text = GameComboCountFloat.ToString();
+
+        if (GetLevelString == "easy")
+        {
+            CubeCraetTime = 1f;
+        }
+        else if (GetLevelString == "nomal")
+        {
+            CubeCraetTime = 0.5f;
+        }
+        else if (GetLevelString == "hard")
+        {
+            CubeCraetTime = 0.25f;
+        }
+    }
+
+
+    private void GetPlayerPrefs()
+    {
+        //Key값 : Game Mode
+        GetGameModeString = PlayerPrefs.GetString("GameMode");
+        //Key값 : Level
+        GetLevelString = PlayerPrefs.GetString("Level");
+        //Key값 : GunMode
+        GetGunModeString = PlayerPrefs.GetString("GunMode");
+        //Key값 : Song
+        GetSongString = PlayerPrefs.GetString("Song");
+    }
+
+
+
+    void SetAudioClip()
     {
         if (GetSongString == "CorporateSong")
         {
             audioSource.clip = AlexNekitaCorporateSong;
-            audioSource.Play();
         }
         else if (GetSongString == "Bad Bounce")
         {
             audioSource.clip = ArtegonBadBounce;
-            audioSource.Play();
         }
         else if (GetSongString == "Chamber")
         {
             audioSource.clip = MonaWonderlickChamber;
-            audioSource.Play();
         }
         else if (GetSongString == "Night Lights")
         {
             audioSource.clip = NightLightsMarkTynerYouTube;
-            audioSource.Play();
         }
         else if (GetSongString == "Peyruis")
         {
-            audioSource.clip = PeyruisFeelinMe;
-            audioSource.Play();
+            audioSource.clip = PeyruisFeelinMe;            
         }
 
-
+        audioSource.Play();
         TotalGameTime = audioSource.clip.length;
+        Debug.Log(TotalGameTime);
     }
 
-
-
-
+       
 
     // GAMEUI에 버튼추가필요
     public void HomeGoClick()
     {
-
-        Application.LoadLevel("Home");
-
+        SceneManager.LoadScene("Home");
     }
 
 
-
-    IEnumerator GameCubeCreat2e()
+    IEnumerator GameCubeCreate()
     {
         for (int i = 0; i < TotalGameTime; i++)
-        {
-            float RamdomZ = Random.Range(-2.0f, 2.0f);
-
+        {           
             int ranNum = Random.Range(0, 2);
 
             GameObject ContentP = Instantiate(ContentPObject[ranNum]);
@@ -162,27 +154,41 @@ public class GameControl : MonoBehaviour
             ContentP.transform.rotation = ContentParanet.transform.rotation;
             ContentP.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
 
-
+            float RamdomZ = Random.Range(-2.0f, 2.0f);
             Vector3 randomPos = ContentParanet.transform.position;
 
             randomPos.z += RamdomZ;
 
             ContentP.transform.position = randomPos;
 
-
             ContentP.name = i.ToString();
 
             yield return new WaitForSeconds(CubeCraetTime);
         }
 
-        yield return new WaitForSeconds(4.0f);
-        ChangeGameScene();
-
+        yield return new WaitForSeconds(5.0f);
+        GameOver();
     }
 
-    // 노래가 끝나면 홈씬으로 넘어간다.
-    public void ChangeGameScene()
+    public void GameOver()
     {
+        StartCoroutine(Co_GameOver());
+    }
+
+    private IEnumerator Co_GameOver()
+    {
+        StartCoroutine(Co_VolumeDown());
+        SteamVR_Fade.Start(Color.black, 5.0f, true);
+        yield return new WaitForSeconds(3.0f);
         SceneManager.LoadScene("Home");
+    }
+
+    private IEnumerator Co_VolumeDown()
+    {
+        while (audioSource.volume > 0.01f)
+        {
+            audioSource.volume = Mathf.Lerp(audioSource.volume, 0, volumeDownSpeed * Time.deltaTime);
+            yield return null;
+        }        
     }
 }

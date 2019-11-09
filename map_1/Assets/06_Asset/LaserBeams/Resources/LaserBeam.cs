@@ -37,7 +37,8 @@ namespace Trickstorm
             _renderer = GetComponent<Renderer>();
         }
 
-        private void FixedUpdate()
+
+        private void Update()
         {
             //Check to see if the laser is enabled
             if (!LaserOn)
@@ -83,7 +84,7 @@ namespace Trickstorm
                 _laserEndLight.transform.position = hit.point;
                 _laserEndLight.transform.localPosition -= Vector3.forward / 10;
 
-                spherePoint.transform.localPosition = endPoint;
+                spherePoint.transform.position = hit.point;
             }
             else
             {
@@ -97,8 +98,8 @@ namespace Trickstorm
                 _laserEndLight.transform.localPosition = Vector3.zero;
                 _lineRenderer.SetPosition(1, endPoint);
 
-                spherePoint.transform.localPosition = endPoint;
-            }            
+                spherePoint.transform.position = hit.point;
+            }
         }
     }
 }

@@ -34,7 +34,6 @@ public class GunControl : MonoBehaviour
     public bool isHit;
     private float shootDistance = 7f;
 
-
     void Start()
     {
         this.audio = this.gameObject.AddComponent<AudioSource>();
