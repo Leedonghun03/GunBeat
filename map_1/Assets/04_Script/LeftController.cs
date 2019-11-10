@@ -25,6 +25,8 @@ public class LeftController : MonoBehaviour
     private RaycastHit hitInfo;
     private LineRenderer lr;
 
+    private Color32 buttonColor = new Color32(93, 221, 255, 128);
+
     private void Start()
     {
         lr = GetComponent<LineRenderer>();
@@ -34,8 +36,7 @@ public class LeftController : MonoBehaviour
     {     
             Button[5].GetComponent<Image>().color = new Color(255, 255, 255);
             Button[6].GetComponent<Image>().color = new Color(255, 255, 255);
-            Button[7].GetComponent<Image>().color = new Color(255, 255, 255);
-       
+            Button[7].GetComponent<Image>().color = new Color(255, 255, 255);       
     }
     private void NewMethod()
     {            
@@ -97,77 +98,77 @@ public class LeftController : MonoBehaviour
         {
             homeControl.ClickSongButton("CorporateSong");
             songTitle.text = "Corporate Song";
-            Debug.Log("Alex Nekita - Corporate Song이 눌렸다");
             NewMethod();
-            GameObject.Find("Corporate Song").GetComponent<Image>().color = new Color(255, 0, 0);
+            GameObject.Find("Corporate Song").GetComponent<Image>().color = buttonColor;
             Image.sprite = sp[0];
+
+            SoundManager.Instance.GetSampleAudio("Corporate Song");
         }
         else if (number == 1)
         {
             homeControl.ClickSongButton("Bad Bounce");
             songTitle.text = "Bad Bounce";
-            Debug.Log("Artegon - Bad Bounce이 눌렸다");
             NewMethod();
-            GameObject.Find("Bad Bounce").GetComponent<Image>().color = new Color(255, 0, 0);
+            GameObject.Find("Bad Bounce").GetComponent<Image>().color = buttonColor;
             Image.sprite = sp[1];
+
+            SoundManager.Instance.GetSampleAudio("Bad Bounce");
         }
         else if (number == 2)
         {
             homeControl.ClickSongButton("Chamber");
             songTitle.text = "Chamber";
-            Debug.Log("Mona Wonderlick - Chamber이 눌렸다");
             NewMethod();
-            GameObject.Find("Chamber").GetComponent<Image>().color = new Color(255, 0, 0);
+            GameObject.Find("Chamber").GetComponent<Image>().color = buttonColor;
             Image.sprite = sp[2];
+
+            SoundManager.Instance.GetSampleAudio("Chamber");
         }
         else if (number == 3)
         {
             homeControl.ClickSongButton("Night Lights");
             songTitle.text = "Night Light";
-            Debug.Log("Night Lights - Mark Tyner - YouTube이 눌렸다");
             NewMethod();
-            GameObject.Find("Night Lights").GetComponent<Image>().color = new Color(255, 0, 0);
+            GameObject.Find("Night Lights").GetComponent<Image>().color = buttonColor;
             Image.sprite = sp[3];
+
+            SoundManager.Instance.GetSampleAudio("Night Lights");
         }
         else if (number == 4)
         {
             homeControl.ClickSongButton("Peyruis");
             songTitle.text = "Peyruis";
-            Debug.Log("Peyruis - Feelin' Me이 눌렸다");
             NewMethod();
-            GameObject.Find("Peyruis").GetComponent<Image>().color = new Color(255, 0, 0);
+            GameObject.Find("Peyruis").GetComponent<Image>().color = buttonColor;
             Image.sprite = sp[4];
+
+            SoundManager.Instance.GetSampleAudio("Peyruis");
         }
         else if (number == 5)
         {
             homeControl.ClickLevelButton("easy");
-            Debug.Log("easy이 눌렸다");
             Change();
-            GameObject.Find("easy").GetComponent<Image>().color = new Color(255, 0, 0);
+            GameObject.Find("easy").GetComponent<Image>().color = buttonColor;
         }
         else if (number == 6)
         {
             homeControl.ClickLevelButton("nomal");
-            Debug.Log("nomal이 눌렸다");
             Change();
-            GameObject.Find("nomal").GetComponent<Image>().color = new Color(255, 0, 0);
+            GameObject.Find("nomal").GetComponent<Image>().color = buttonColor;
         }
         else if (number == 7)
         {
             homeControl.ClickLevelButton("hard");
-            Debug.Log("hard이 눌렸다");
             Change();
-            GameObject.Find("hard").GetComponent<Image>().color = new Color(255, 0, 0);
+            GameObject.Find("hard").GetComponent<Image>().color = buttonColor;
         }
         else if (number == 8)
         {
             homeControl.PlayGameStartClick();
-            Debug.Log("start이 눌렸다");
         }
         else if (number == 9)
         {
             homeControl.ExitButton();
-            Debug.Log("게임 설정 확인 버튼 닫기");
         }
     }
 }

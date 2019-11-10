@@ -86,6 +86,7 @@
     <Compile Include="Assets\04_Script\LeftController.cs" />
     <Compile Include="Assets\04_Script\M4A1.cs" />
     <Compile Include="Assets\04_Script\menubring.cs" />
+    <Compile Include="Assets\04_Script\SoundManager.cs" />
     <Compile Include="Assets\04_Script\spher.cs" />
     <Compile Include="Assets\04_Script\Start02.cs" />
     <Compile Include="Assets\04_Script\TwoHand.cs" />

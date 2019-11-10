@@ -39,6 +39,7 @@ public class GunControl : MonoBehaviour
         this.audio = this.gameObject.AddComponent<AudioSource>();
         this.audio.clip = this.GunSound;
         this.audio.loop = false;
+        this.audio.volume = 0.8f;
         timer = 0.0f;    
 
     }

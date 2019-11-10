@@ -44,6 +44,8 @@ public class GameControl : MonoBehaviour
     private AudioSource audioSource = null;
     private float volumeDownSpeed = 0.8f;
 
+    private float currentTime = 0;
+
 
     private void Awake()
     {
@@ -67,6 +69,8 @@ public class GameControl : MonoBehaviour
     {
         GamePointCountText.text = GamePointCountFloat.ToString();
         GameComboCountText.text = GameComboCountFloat.ToString();
+
+        currentTime += Time.deltaTime;
     }
 
     void InitializeSetting()
@@ -144,8 +148,12 @@ public class GameControl : MonoBehaviour
 
     IEnumerator GameCubeCreate()
     {
-        for (int i = 0; i < TotalGameTime; i++)
-        {           
+        int i = 1;
+
+        //                      90
+        while(currentTime < TotalGameTime)
+        {                 
+            // 큐브 생성
             int ranNum = Random.Range(0, 2);
 
             GameObject ContentP = Instantiate(ContentPObject[ranNum]);
@@ -162,11 +170,13 @@ public class GameControl : MonoBehaviour
             ContentP.transform.position = randomPos;
 
             ContentP.name = i.ToString();
+            i++;
 
             yield return new WaitForSeconds(CubeCraetTime);
         }
 
         yield return new WaitForSeconds(5.0f);
+
         GameOver();
     }
 
