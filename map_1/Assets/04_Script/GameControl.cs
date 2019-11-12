@@ -150,7 +150,6 @@ public class GameControl : MonoBehaviour
     {
         int i = 1;
 
-        //                      90
         while(currentTime < TotalGameTime)
         {                 
             // 큐브 생성

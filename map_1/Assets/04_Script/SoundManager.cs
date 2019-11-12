@@ -23,11 +23,7 @@ public class SoundManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            currentSong = songs[3];
-            PlaySampleSong();
-        }
+
     }
 
 

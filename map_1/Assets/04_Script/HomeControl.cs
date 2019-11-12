@@ -35,15 +35,15 @@ public class HomeControl : MonoBehaviour
     public void PlayGameStartClick()
     {
        if(PostSongString != "" && PostLevelString != "")
-        {
+       {
             Debug.Log("게임 시작");
             Application.LoadLevel("GameUI");
-        }
-        else
-        {
+       }
+       else
+       {
             AlertPanelObject.SetActive(true);
             ErrorTitleText.text = "설정 확인해주세요.";
-        }
+       }
     }
 
 

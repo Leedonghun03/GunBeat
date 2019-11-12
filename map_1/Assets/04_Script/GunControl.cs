@@ -89,7 +89,7 @@ public class GunControl : MonoBehaviour
     // 텔레포트가 활성화되면 true 반환
     public bool GetTeleportDown()
     {
-        return teleprotAction.GetStateDown(handType);;
+        return teleprotAction.GetStateDown(handType);
     }
 
     // 잡기 액션이 활성화되어 있으면 true 반환
